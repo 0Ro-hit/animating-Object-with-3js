@@ -11,31 +11,25 @@ renderer.setSize(window.innerWidth,window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const geometry=new THREE.BoxGeometry(1,1,1);
+// few more basic geometry
+// const geometry = new THREE.CapsuleGeometry(1,1,4,8);
+// const geometry = new THREE.CircleGeometry(1,1,4,8);
+// const geometry = new THREE.ConeGeometry(1,1,4,8);
+// const geometry = new THREE.CylinderGeometry(1,1,4,8);
 const material= new THREE.MeshBasicMaterial({color: 'blue'});
 const cube=new THREE.Mesh(geometry,material);
 
 
-const geometry2=new THREE.CircleGeometry(1,32);
-const material2=new THREE.MeshBasicMaterial({color:'pink'})
-const circle=new THREE.Mesh(geometry2,material2);
+// if you want to use skeleton type object tha  use 
+// const circle= new THREE.Line(geometry,material);
 
 scene.add(cube);
 scene1.add(circle);
 var flag=true;
-// cube.rotation.x=Math.PI*(45/180.0);
-function anime(){
-    if(circle.position.x>5){
-        circle.position.x += 0.1;
-    }
-    else if(circle.position.x<-5){
-        circle.position.x -=0.1;
-    }
-    renderer.render(scene1,camera);
-    requestAnimationFrame(anime);
-}
-anime();
+// cube.rotation.x=Math.PI*(45/180.0);  you can also use this for formula for rotating 
 
-function anime2(){
+
+function anime(){
     if(cube.position.x >5){
         flag=false;
     }
@@ -50,5 +44,5 @@ function anime2(){
     renderer.render(scene,camera);
     requestAnimationFrame(anime2);
 }
-anime2();
+anime();
 
